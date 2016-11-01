@@ -25,6 +25,9 @@ namespace BudgetManagement
             dataGridView2.Columns[0].ValueType = typeof(string);
             dataGridView2.Columns[1].ValueType = typeof(decimal);
 
+            chart1.Series["Income"]["PointWidth"] = "1.5";
+            chart1.Series["Costs"]["PointWidth"] = "1.5";
+
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
 
         }
@@ -33,7 +36,7 @@ namespace BudgetManagement
         {
             if(tabControl1.SelectedIndex == 2)
             {
-                ShowProfit();
+                Chart1();
             }
         }
 
@@ -78,12 +81,16 @@ namespace BudgetManagement
             costLabel.Text = "€" + Cost.GetTotal().ToString();
         }
 
-        private void ShowProfit()
+        private void Chart1()
         {
-            decimal profit = Income.GetTotal() - Cost.GetTotal();
+            decimal income = Income.GetTotal();
+            decimal costs = Cost.GetTotal();
 
-            profitLabel.Text = "€" + profit.ToString();
-
+            chart1.Series["Income"].Points.AddXY(1d, Convert.ToDouble(income));
+            chart1.Series["Costs"].Points.AddXY(2d, Convert.ToDouble(costs));
         }
+
+
+
     }
 }

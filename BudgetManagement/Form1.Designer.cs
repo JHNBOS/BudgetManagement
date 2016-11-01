@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.income = new System.Windows.Forms.TabPage();
             this.incomeLabel = new System.Windows.Forms.Label();
@@ -44,21 +48,22 @@
             this.label10 = new System.Windows.Forms.Label();
             this.saveCostButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.description2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.charts = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.description2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount2Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profitLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.costs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.charts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -239,6 +244,16 @@
             this.dataGridView2.Size = new System.Drawing.Size(675, 374);
             this.dataGridView2.TabIndex = 6;
             // 
+            // description2Column
+            // 
+            this.description2Column.HeaderText = "Description";
+            this.description2Column.Name = "description2Column";
+            // 
+            // amount2Column
+            // 
+            this.amount2Column.HeaderText = "Amount";
+            this.amount2Column.Name = "amount2Column";
+            // 
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -261,7 +276,7 @@
             // charts
             // 
             this.charts.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.charts.Controls.Add(this.profitLabel);
+            this.charts.Controls.Add(this.chart1);
             this.charts.Controls.Add(this.label6);
             this.charts.Controls.Add(this.label7);
             this.charts.Font = new System.Drawing.Font("Open Sans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -270,6 +285,45 @@
             this.charts.Size = new System.Drawing.Size(803, 496);
             this.charts.TabIndex = 2;
             this.charts.Text = "Charts";
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.AlignmentStyle = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentStyles.AxesView;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            legend1.Position.Auto = false;
+            legend1.Position.Height = 12.70903F;
+            legend1.Position.Width = 28.6645F;
+            legend1.Position.X = 68.3355F;
+            legend1.Position.Y = 3F;
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(76, 76);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Lime;
+            series1.CustomProperties = "PointWidth=1, LabelStyle=Center";
+            series1.Legend = "Legend1";
+            series1.LegendToolTip = "#VAL{C2}";
+            series1.Name = "Income";
+            series1.ToolTip = "#VAL{C2}";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Red;
+            series2.CustomProperties = "PointWidth=1, LabelStyle=Center";
+            series2.Legend = "Legend1";
+            series2.LegendToolTip = "#VAL{C2}";
+            series2.Name = "Costs";
+            series2.ToolTip = "#VAL{C2}";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(308, 300);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
             // 
             // label6
             // 
@@ -302,26 +356,6 @@
             this.label1.Text = "Budget Management";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // description2Column
-            // 
-            this.description2Column.HeaderText = "Description";
-            this.description2Column.Name = "description2Column";
-            // 
-            // amount2Column
-            // 
-            this.amount2Column.HeaderText = "Amount";
-            this.amount2Column.Name = "amount2Column";
-            // 
-            // profitLabel
-            // 
-            this.profitLabel.AutoSize = true;
-            this.profitLabel.Font = new System.Drawing.Font("Open Sans", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profitLabel.Location = new System.Drawing.Point(336, 171);
-            this.profitLabel.Name = "profitLabel";
-            this.profitLabel.Size = new System.Drawing.Size(138, 47);
-            this.profitLabel.TabIndex = 6;
-            this.profitLabel.Text = "label11";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
@@ -345,6 +379,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.charts.ResumeLayout(false);
             this.charts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,7 +411,7 @@
         private System.Windows.Forms.Label costLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn description2Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount2Column;
-        private System.Windows.Forms.Label profitLabel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 
