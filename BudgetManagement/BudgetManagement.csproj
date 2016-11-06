@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cost.cs" />
+    <Compile Include="file.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

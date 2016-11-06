@@ -8,8 +8,8 @@ namespace BudgetManagement
 {
     public class income
     {
-        public string[] Description { get; set; }
-        public decimal[] Amount { get; set; }
+        public List<string> Description { get; set; }
+        public List<decimal> Amount { get; set; }
 
         public decimal GetTotal()
         {
