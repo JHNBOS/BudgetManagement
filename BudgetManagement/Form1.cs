@@ -22,7 +22,7 @@ namespace BudgetManagement
         {
             InitializeComponent();
 
-            //Datagridview
+            //Datagridview handlers and setting valuetypes of columns
             dataGridView2.CellEndEdit += DataGridView2_CellEndEdit;
             dataGridView1.CellEndEdit += DataGridView1_CellEndEdit;
 
@@ -32,14 +32,14 @@ namespace BudgetManagement
             dataGridView2.Columns[0].ValueType = typeof(string);
             dataGridView2.Columns[1].ValueType = typeof(decimal);
 
-            //Chart
+            //Chart settings
             chart3.Series["Income"]["PointWidth"] = "0.75";
             chart3.Series["Costs"]["PointWidth"] = "0.75";
 
             chart3.Enabled = false;
             chart3.Legends["Legend1"].Enabled = false;
 
-            //ComboBox
+            //ComboBox items
             chartComboBox.Items.Add("");
             chartComboBox.Items.Add("Column");
             chartComboBox.Items.Add("Pie");
