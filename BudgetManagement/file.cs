@@ -14,10 +14,20 @@ namespace BudgetManagement
         {
             //Filepath
             string filepath = @"C:/charts/" + Filename + ".txt";
+            bool exist = false;
+
+            if (File.Exists(filepath))
+            {
+                exist = true;
+            }
+            else
+            {
+                exist = false;
+            }
 
             try
             {
-                using (StreamWriter writer = new StreamWriter(filepath))
+                using (StreamWriter writer = new StreamWriter(filepath, !exist))
                 {
                     int rowCount = dataGridView1.Rows.Count;
 
@@ -32,9 +42,6 @@ namespace BudgetManagement
                         writer.Write("\r\n");
                     }
                 }
-
-                MessageBox.Show("File succesfully saved!");
-
             }
             catch (Exception ex)
             {
@@ -73,9 +80,6 @@ namespace BudgetManagement
                 {
                     dataGridView1.Rows.Add(descriptionList[i], valueList[i]);
                 }
-
-                MessageBox.Show("File succesfully imported!");
-
             }
             catch (Exception ex)
             {
