@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.descriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,15 +74,33 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descriptionColumn,
             this.amountColumn});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.DodgerBlue;
             this.dataGridView1.Location = new System.Drawing.Point(10, 64);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(493, 282);
             this.dataGridView1.TabIndex = 2;
@@ -97,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(5, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 30);
@@ -109,7 +131,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(764, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(282, 37);
@@ -121,7 +143,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(5, 352);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 30);
@@ -132,15 +154,32 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descriptionColumn2,
             this.amountColumn2});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.Location = new System.Drawing.Point(10, 383);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(493, 252);
             this.dataGridView2.TabIndex = 4;
@@ -157,67 +196,68 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.BackColor = System.Drawing.Color.DimGray;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(-6, 353);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(516, 1);
+            this.label4.Size = new System.Drawing.Size(516, 2);
             this.label4.TabIndex = 5;
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.BackColor = System.Drawing.Color.DimGray;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(509, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1, 700);
+            this.label5.Size = new System.Drawing.Size(2, 700);
             this.label5.TabIndex = 8;
             // 
             // chart3
             // 
-            this.chart3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea6.AxisX.IsLabelAutoFit = false;
-            chartArea6.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea6.AxisY.IsLabelAutoFit = false;
-            chartArea6.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea6.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart3.Legends.Add(legend6);
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart3.Legends.Add(legend1);
             this.chart3.Location = new System.Drawing.Point(516, 112);
             this.chart3.Name = "chart3";
             this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series11.ChartArea = "ChartArea1";
-            series11.Color = System.Drawing.Color.LimeGreen;
-            series11.LabelToolTip = "#VAL{C2}";
-            series11.Legend = "Legend1";
-            series11.Name = "Income";
-            series12.ChartArea = "ChartArea1";
-            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            series12.LabelToolTip = "#VAL{C2}";
-            series12.Legend = "Legend1";
-            series12.Name = "Costs";
-            this.chart3.Series.Add(series11);
-            this.chart3.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.LimeGreen;
+            series1.LabelToolTip = "#VAL{C2}";
+            series1.Legend = "Legend1";
+            series1.Name = "Income";
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            series2.LabelToolTip = "#VAL{C2}";
+            series2.Legend = "Legend1";
+            series2.Name = "Costs";
+            this.chart3.Series.Add(series1);
+            this.chart3.Series.Add(series2);
             this.chart3.Size = new System.Drawing.Size(530, 300);
             this.chart3.TabIndex = 9;
             this.chart3.Text = "chart1";
-            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            title6.ForeColor = System.Drawing.Color.White;
-            title6.Name = "Title1";
-            title6.Text = "Income vs. Costs";
-            this.chart3.Titles.Add(title6);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            title1.ForeColor = System.Drawing.Color.White;
+            title1.Name = "Title1";
+            title1.Text = "Income vs. Costs";
+            this.chart3.Titles.Add(title1);
             // 
             // loadButton
             // 
-            this.loadButton.BackColor = System.Drawing.SystemColors.Control;
+            this.loadButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.loadButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.loadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadButton.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadButton.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadButton.ForeColor = System.Drawing.Color.White;
             this.loadButton.Location = new System.Drawing.Point(542, 77);
             this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(102, 23);
+            this.loadButton.Size = new System.Drawing.Size(102, 29);
             this.loadButton.TabIndex = 10;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = false;
@@ -225,23 +265,28 @@
             // 
             // exportButton
             // 
-            this.exportButton.BackColor = System.Drawing.SystemColors.Control;
+            this.exportButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.exportButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportButton.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportButton.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportButton.ForeColor = System.Drawing.Color.White;
             this.exportButton.Location = new System.Drawing.Point(650, 77);
             this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(89, 23);
+            this.exportButton.Size = new System.Drawing.Size(89, 29);
             this.exportButton.TabIndex = 11;
             this.exportButton.Text = "Export";
+            this.exportButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.exportButton, "An image will be saved to \"C:/charts/\"");
             this.exportButton.UseVisualStyleBackColor = false;
             this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // openButton
             // 
-            this.openButton.BackColor = System.Drawing.SystemColors.Control;
+            this.openButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.openButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.openButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openButton.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openButton.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openButton.ForeColor = System.Drawing.Color.White;
             this.openButton.Location = new System.Drawing.Point(6, 2);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(75, 26);
@@ -252,18 +297,20 @@
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.BackColor = System.Drawing.Color.DimGray;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(-6, 31);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(516, 1);
+            this.label6.Size = new System.Drawing.Size(516, 2);
             this.label6.TabIndex = 13;
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.SystemColors.Control;
+            this.saveButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(87, 2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 26);
@@ -275,10 +322,11 @@
             // 
             // chartComboBox
             // 
-            this.chartComboBox.BackColor = System.Drawing.SystemColors.Control;
+            this.chartComboBox.BackColor = System.Drawing.Color.Gainsboro;
             this.chartComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chartComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chartComboBox.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartComboBox.ForeColor = System.Drawing.Color.Black;
             this.chartComboBox.FormattingEnabled = true;
             this.chartComboBox.Location = new System.Drawing.Point(542, 50);
             this.chartComboBox.Name = "chartComboBox";
@@ -290,7 +338,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label7.Location = new System.Drawing.Point(539, 30);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 17);
@@ -301,7 +349,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Open Sans", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(548, 495);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(231, 24);
@@ -312,7 +360,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Open Sans", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(548, 533);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(211, 24);
@@ -323,8 +371,8 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Open Sans", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(548, 603);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(548, 589);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(234, 24);
             this.label10.TabIndex = 19;
@@ -334,7 +382,7 @@
             // 
             this.incomeLabel.AutoSize = true;
             this.incomeLabel.Font = new System.Drawing.Font("Open Sans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.incomeLabel.ForeColor = System.Drawing.Color.Black;
             this.incomeLabel.Location = new System.Drawing.Point(876, 495);
             this.incomeLabel.Name = "incomeLabel";
             this.incomeLabel.Size = new System.Drawing.Size(0, 20);
@@ -344,7 +392,7 @@
             // 
             this.costLabel.AutoSize = true;
             this.costLabel.Font = new System.Drawing.Font("Open Sans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.costLabel.ForeColor = System.Drawing.Color.Black;
             this.costLabel.Location = new System.Drawing.Point(876, 534);
             this.costLabel.Name = "costLabel";
             this.costLabel.Size = new System.Drawing.Size(0, 20);
@@ -354,26 +402,26 @@
             // 
             this.remainLabel.AutoSize = true;
             this.remainLabel.Font = new System.Drawing.Font("Open Sans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remainLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.remainLabel.Location = new System.Drawing.Point(876, 603);
+            this.remainLabel.ForeColor = System.Drawing.Color.Black;
+            this.remainLabel.Location = new System.Drawing.Point(876, 589);
             this.remainLabel.Name = "remainLabel";
             this.remainLabel.Size = new System.Drawing.Size(0, 20);
             this.remainLabel.TabIndex = 23;
             // 
             // label11
             // 
-            this.label11.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.BackColor = System.Drawing.Color.DimGray;
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(550, 571);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(480, 1);
+            this.label11.Size = new System.Drawing.Size(420, 2);
             this.label11.TabIndex = 24;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1051, 638);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.remainLabel);

@@ -98,15 +98,15 @@ namespace BudgetManagement
                 chart3.Series["Pie"].Points[1].LabelForeColor = Color.White;
 
                 chart3.Series["Pie"].Points[0].LegendText = "Income";
-                chart3.Series["Pie"].Points[1].LegendText = "Cost";
+                chart3.Series["Pie"].Points[1].LegendText = "Costs";
 
                 chart3.Series["Pie"].Points[0].IsVisibleInLegend = true;
                 chart3.Series["Pie"].Points[1].IsVisibleInLegend = true;
             }
 
             //Overall chart settings
-            chart3.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-            chart3.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+            chart3.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
+            chart3.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
         }
 
         //Create Costs instance
@@ -226,6 +226,11 @@ namespace BudgetManagement
                 MessageBox.Show("Please select a type of chart to display!");
             }
 
+            incomeLabel.Text = "€" + Income.GetTotal();
+            costLabel.Text = "€" + Cost.GetTotal();
+
+            decimal remain = Income.GetTotal() - Cost.GetTotal();
+            remainLabel.Text = "€" + remain;
         }
 
         //Begin of Button handlers  
@@ -250,11 +255,7 @@ namespace BudgetManagement
 
                 MessageBox.Show("Files succesfully imported!");
 
-                incomeLabel.Text = "€" + Income.GetTotal();
-                costLabel.Text = "€" + Cost.GetTotal();
-
-                decimal remain = Income.GetTotal() - Cost.GetTotal();
-                remainLabel.Text = "€" + remain;
+               
             }
             catch (Exception ex)
             {
