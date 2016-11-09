@@ -32,6 +32,9 @@ namespace BudgetManagement
             dataGridView2.Columns[0].ValueType = typeof(string);
             dataGridView2.Columns[1].ValueType = typeof(decimal);
 
+            dataGridView1.Columns[1].DefaultCellStyle.Format = "0.00##";
+            dataGridView2.Columns[1].DefaultCellStyle.Format = "0.00##";
+
             //ComboBox handler
             chartComboBox.SelectedIndexChanged += ChartComboBox_SelectedIndexChanged;
 
@@ -208,29 +211,37 @@ namespace BudgetManagement
         //Load Chart
         private void loadButton_Click(object sender, EventArgs e)
         {
-           
-            if (chart == "Column")
+            try
             {
-                chart3.Show();
-                ResetChart3();
-                Chart3Column();
+                if (chart == "Column")
+                {
+                    chart3.Show();
+                    ResetChart3();
+                    Chart3Column();
+                }
+                else if (chart == "Pie")
+                {
+                    chart3.Show();
+                    ResetChart3();
+                    Chart3Pie();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a type of chart to display!");
+                }
+
+                incomeLabel.Text = "€" + Income.GetTotal();
+                costLabel.Text = "€" + Cost.GetTotal();
+
+                decimal remain = Income.GetTotal() - Cost.GetTotal();
+                remainLabel.Text = "€" + remain;
             }
-            else if(chart == "Pie")
+            catch (Exception ex)
             {
-                chart3.Show();
-                ResetChart3();
-                Chart3Pie();
-            }
-            else
-            {
-                MessageBox.Show("Please select a type of chart to display!");
+                MessageBox.Show("Unable to load chart!");
+                System.Diagnostics.Debug.WriteLine(ex);
             }
 
-            incomeLabel.Text = "€" + Income.GetTotal();
-            costLabel.Text = "€" + Cost.GetTotal();
-
-            decimal remain = Income.GetTotal() - Cost.GetTotal();
-            remainLabel.Text = "€" + remain;
         }
 
         //Begin of Button handlers  
@@ -239,9 +250,25 @@ namespace BudgetManagement
             string date = DateTime.Now.ToString("ddMMyyyyhhmmss");
             string path = "C:\\charts\\chart_" + date + ".png";
 
-            chart3.SaveImage(path, ChartImageFormat.Png);
+            try
+            {
+                if (chart3.Visible == true)
+                {
+                    chart3.SaveImage(path, ChartImageFormat.Png);
+                    MessageBox.Show("Chart succesfully exported!");
+                }
 
-            MessageBox.Show("Chart succesfully exported!");
+                if (chart == "")
+                {
+                    MessageBox.Show("Please select a type of chart to export!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to export chart!");
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+            
         }
 
         private void openButton_Click(object sender, EventArgs e)
@@ -254,8 +281,6 @@ namespace BudgetManagement
                 file.Import(dataGridView2, "costs");
 
                 MessageBox.Show("Files succesfully imported!");
-
-               
             }
             catch (Exception ex)
             {
@@ -275,6 +300,12 @@ namespace BudgetManagement
                 file.Export(dataGridView2, "costs");
 
                 MessageBox.Show("Files succesfully saved!");
+
+                incomeLabel.Text = "€" + Income.GetTotal();
+                costLabel.Text = "€" + Cost.GetTotal();
+
+                decimal remain = Income.GetTotal() - Cost.GetTotal();
+                remainLabel.Text = "€" + remain;
             }
             catch (Exception ex)
             {
@@ -282,16 +313,8 @@ namespace BudgetManagement
                 MessageBox.Show("Files could not be saves!");
                 throw;
             }
-            
-            incomeLabel.Text = "€" + Income.GetTotal();
-            costLabel.Text = "€" + Cost.GetTotal();
-
-            decimal remain = Income.GetTotal() - Cost.GetTotal();
-            remainLabel.Text = "€" + remain;
-
         }
         //End of Button handlers
-
 
 
         //Begin of Event handlers

@@ -13,7 +13,20 @@ namespace BudgetManagement
 
         public decimal GetTotal()
         {
-            return Amount.Sum();
+            decimal amount = Amount.Sum();
+            decimal returnAmount = 0;
+
+            if (amount % 1 == 0)
+            {
+                string a = amount.ToString() + ",00";
+                returnAmount = Convert.ToDecimal(a);
+            }
+            else
+            {
+                returnAmount = amount;
+            }
+
+            return returnAmount;
         }
 
     }
