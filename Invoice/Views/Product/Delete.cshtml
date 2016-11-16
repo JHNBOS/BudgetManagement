@@ -1,0 +1,57 @@
+﻿@model Invoice.producten
+
+@{
+    ViewBag.Title = "Verwijder Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product verwijderen</h2>
+
+<h3>Weet u zeker dat u dit product wilt verwijderen?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BTW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BTW)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Terug naar de lijst", "Index")
+        </div>
+    }
+</div>

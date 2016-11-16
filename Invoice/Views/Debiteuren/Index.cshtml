@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Invoice.debiteuren>
+
+@{
+    ViewBag.Title = "Debiteuren";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Debiteuren</h2>
+
+<p>
+    @Html.ActionLink("Creëer debiteur", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Achternaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Straat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nummer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plaats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Land)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefoon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voornaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achternaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Straat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nummer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plaats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Land)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefoon)
+        </td>
+        <td>
+            @Html.ActionLink("Bwerken", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Inzien", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Verwijderen", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

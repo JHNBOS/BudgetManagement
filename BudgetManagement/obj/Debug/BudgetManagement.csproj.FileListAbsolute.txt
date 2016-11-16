@@ -9,6 +9,7 @@ D:\Johan Bos\Documents\Visual Studio 2015\Projects\IdeaProjects\BudgetManagement
 C:\Github\BudgetManagement\BudgetManagement\bin\Debug\BudgetManagement.exe.config
 C:\Github\BudgetManagement\BudgetManagement\bin\Debug\BudgetManagement.exe
 C:\Github\BudgetManagement\BudgetManagement\bin\Debug\BudgetManagement.pdb
+C:\Github\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.csprojResolveAssemblyReference.cache
 C:\Github\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Form1.resources
 C:\Github\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Properties.Resources.resources
 C:\Github\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.csproj.GenerateResource.Cache

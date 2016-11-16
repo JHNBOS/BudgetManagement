@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="invoiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bezit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deb_ID" Type="Int32" />
+    <Property Name="Product_ID" Type="Int32" />
+    <NavigationProperty Name="factuur" Relationship="Self.fk_bezit" FromRole="bezit" ToRole="factuur" />
+    <NavigationProperty Name="debiteuren" Relationship="Self.fk_deb" FromRole="bezit" ToRole="debiteuren" />
+    <NavigationProperty Name="producten" Relationship="Self.fk_product" FromRole="bezit" ToRole="producten" />
+  </EntityType>
+  <EntityType Name="debiteuren">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Voornaam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Achternaam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Straat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nummer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Postcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Plaats" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Land" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telefoon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="bezit" Relationship="Self.fk_deb" FromRole="debiteuren" ToRole="bezit" />
+  </EntityType>
+  <EntityType Name="factuur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bezit_ID" Type="Int32" />
+    <NavigationProperty Name="bezit" Relationship="Self.fk_bezit" FromRole="factuur" ToRole="bezit" />
+  </EntityType>
+  <EntityType Name="producten">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Beschrijving" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prijs" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="BTW" Type="Int32" />
+    <NavigationProperty Name="bezit" Relationship="Self.fk_product" FromRole="producten" ToRole="bezit" />
+  </EntityType>
+  <Association Name="fk_bezit">
+    <End Role="bezit" Type="Self.bezit" Multiplicity="0..1" />
+    <End Role="factuur" Type="Self.factuur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bezit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="factuur">
+        <PropertyRef Name="Bezit_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_deb">
+    <End Role="debiteuren" Type="Self.debiteuren" Multiplicity="0..1" />
+    <End Role="bezit" Type="Self.bezit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="debiteuren">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bezit">
+        <PropertyRef Name="Deb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_product">
+    <End Role="producten" Type="Self.producten" Multiplicity="0..1" />
+    <End Role="bezit" Type="Self.bezit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producten">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bezit">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bezit" EntityType="Self.bezit" />
+    <EntitySet Name="debiteuren" EntityType="Self.debiteuren" />
+    <EntitySet Name="factuur" EntityType="Self.factuur" />
+    <EntitySet Name="producten" EntityType="Self.producten" />
+    <AssociationSet Name="fk_bezit" Association="Self.fk_bezit">
+      <End Role="bezit" EntitySet="bezit" />
+      <End Role="factuur" EntitySet="factuur" />
+    </AssociationSet>
+    <AssociationSet Name="fk_deb" Association="Self.fk_deb">
+      <End Role="debiteuren" EntitySet="debiteuren" />
+      <End Role="bezit" EntitySet="bezit" />
+    </AssociationSet>
+    <AssociationSet Name="fk_product" Association="Self.fk_product">
+      <End Role="producten" EntitySet="producten" />
+      <End Role="bezit" EntitySet="bezit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="invoiceModel.Store" Provider="Npgsql" ProviderManifestToken="9.4.4" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bezit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Deb_ID" Type="int4" />
+    <Property Name="Product_ID" Type="int4" />
+  </EntityType>
+  <EntityType Name="debiteuren">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Voornaam" Type="text" />
+    <Property Name="Achternaam" Type="text" />
+    <Property Name="Straat" Type="text" />
+    <Property Name="Nummer" Type="text" />
+    <Property Name="Postcode" Type="text" />
+    <Property Name="Plaats" Type="text" />
+    <Property Name="Land" Type="text" />
+    <Property Name="Email" Type="text" />
+    <Property Name="Telefoon" Type="text" />
+  </EntityType>
+  <EntityType Name="factuur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bezit_ID" Type="int4" />
+  </EntityType>
+  <EntityType Name="producten">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naam" Type="text" />
+    <Property Name="Beschrijving" Type="text" />
+    <Property Name="Prijs" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="BTW" Type="int4" />
+  </EntityType>
+  <Association Name="fk_bezit">
+    <End Role="bezit" Type="Self.bezit" Multiplicity="0..1" />
+    <End Role="factuur" Type="Self.factuur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bezit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="factuur">
+        <PropertyRef Name="Bezit_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_deb">
+    <End Role="debiteuren" Type="Self.debiteuren" Multiplicity="0..1" />
+    <End Role="bezit" Type="Self.bezit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="debiteuren">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bezit">
+        <PropertyRef Name="Deb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_product">
+    <End Role="producten" Type="Self.producten" Multiplicity="0..1" />
+    <End Role="bezit" Type="Self.bezit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producten">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bezit">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="invoiceModelStoreContainer">
+    <EntitySet Name="bezit" EntityType="Self.bezit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="debiteuren" EntityType="Self.debiteuren" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="factuur" EntityType="Self.factuur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="producten" EntityType="Self.producten" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_bezit" Association="Self.fk_bezit">
+      <End Role="bezit" EntitySet="bezit" />
+      <End Role="factuur" EntitySet="factuur" />
+    </AssociationSet>
+    <AssociationSet Name="fk_deb" Association="Self.fk_deb">
+      <End Role="debiteuren" EntitySet="debiteuren" />
+      <End Role="bezit" EntitySet="bezit" />
+    </AssociationSet>
+    <AssociationSet Name="fk_product" Association="Self.fk_product">
+      <End Role="producten" EntitySet="producten" />
+      <End Role="bezit" EntitySet="bezit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

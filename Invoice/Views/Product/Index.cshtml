@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Invoice.producten>
+
+@{
+    ViewBag.Title = "Producten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Producten</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Beschrijving)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BTW)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beschrijving)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prijs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BTW)
+        </td>
+        <td>
+            @Html.ActionLink("Aanpassen", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Verwijderen", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="invoiceModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="bezit">
+      <EntityTypeMapping TypeName="invoiceModel.bezit">
+        <MappingFragment StoreEntitySet="bezit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Deb_ID" ColumnName="Deb_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="debiteuren">
+      <EntityTypeMapping TypeName="invoiceModel.debiteuren">
+        <MappingFragment StoreEntitySet="debiteuren">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+          <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+          <ScalarProperty Name="Straat" ColumnName="Straat" />
+          <ScalarProperty Name="Nummer" ColumnName="Nummer" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Plaats" ColumnName="Plaats" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="factuur">
+      <EntityTypeMapping TypeName="invoiceModel.factuur">
+        <MappingFragment StoreEntitySet="factuur">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Bezit_ID" ColumnName="Bezit_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producten">
+      <EntityTypeMapping TypeName="invoiceModel.producten">
+        <MappingFragment StoreEntitySet="producten">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Beschrijving" ColumnName="Beschrijving" />
+          <ScalarProperty Name="Prijs" ColumnName="Prijs" />
+          <ScalarProperty Name="BTW" ColumnName="BTW" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
