@@ -178,6 +178,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ToewijzenController.cs" />
     <Compile Include="Models\bezit.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DebiteurenController.cs" />
@@ -260,6 +261,11 @@
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Toewijzen\Create.cshtml" />
+    <Content Include="Views\Toewijzen\Delete.cshtml" />
+    <Content Include="Views\Toewijzen\Details.cshtml" />
+    <Content Include="Views\Toewijzen\Edit.cshtml" />
+    <Content Include="Views\Toewijzen\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

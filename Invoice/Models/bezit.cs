@@ -17,8 +17,10 @@ namespace Invoice
 
         public int ID { get; set; }
 
+        [ForeignKey("debiteuren")]
         public int? Deb_ID { get; set; }
 
+        [ForeignKey("producten")]
         public int? Product_ID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

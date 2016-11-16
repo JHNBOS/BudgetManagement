@@ -68,6 +68,5 @@ C:\Github\BudgetManagement\Invoice\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Github\BudgetManagement\Invoice\bin\Microsoft.Owin.Security.Google.xml
 C:\Github\BudgetManagement\Invoice\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Github\BudgetManagement\Invoice\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Github\BudgetManagement\Invoice\obj\Debug\Invoice.csprojResolveAssemblyReference.cache
 C:\Github\BudgetManagement\Invoice\obj\Debug\Invoice.dll
 C:\Github\BudgetManagement\Invoice\obj\Debug\Invoice.pdb

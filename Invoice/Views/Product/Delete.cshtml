@@ -33,6 +33,7 @@
         </dt>
 
         <dd>
+            @Html.Raw("€")
             @Html.DisplayFor(model => model.Prijs)
         </dd>
 
@@ -42,6 +43,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.BTW)
+            @Html.Raw("%")
         </dd>
 
     </dl>

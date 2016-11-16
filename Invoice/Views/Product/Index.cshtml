@@ -20,9 +20,11 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Prijs)
+            @Html.Raw("(€)")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BTW)
+            @Html.Raw("(%)")
         </th>
         <th></th>
     </tr>
@@ -36,10 +38,12 @@
             @Html.DisplayFor(modelItem => item.Beschrijving)
         </td>
         <td>
+            @Html.Raw("€")
             @Html.DisplayFor(modelItem => item.Prijs)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BTW)
+            @Html.Raw("%")
         </td>
         <td>
             @Html.ActionLink("Aanpassen", "Edit", new { id=item.ID }) |
