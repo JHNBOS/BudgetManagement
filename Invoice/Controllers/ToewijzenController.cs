@@ -69,6 +69,10 @@ namespace Invoice.Controllers
         // GET: Toewijzen/Edit/5
         public ActionResult Edit(int? id)
         {
+            bezit Bezit = new bezit();
+
+            ViewBag.product = new SelectList(db.productens, "ID", "Naam", Bezit.Product_ID);
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

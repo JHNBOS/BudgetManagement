@@ -39,6 +39,32 @@ namespace Invoice.Controllers
         // GET: Product/Create
         public ActionResult Create()
         {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            var btw0 = new SelectListItem()
+            {
+                Value = "0",
+                Text = "0%"
+            };
+
+            var btw6 = new SelectListItem()
+            {
+                Value = "6",
+                Text = "6%"
+            };
+
+            var btw21 = new SelectListItem()
+            {
+                Value = "21",
+                Text = "21%"
+            };
+
+            items.Add(btw0);
+            items.Add(btw6);
+            items.Add(btw21);
+        
+            ViewBag.btw = new SelectList(items, "Value", "Text");
+
             return View();
         }
 
@@ -71,6 +97,33 @@ namespace Invoice.Controllers
             {
                 return HttpNotFound();
             }
+
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            var btw0 = new SelectListItem()
+            {
+                Value = "0",
+                Text = "0%"
+            };
+
+            var btw6 = new SelectListItem()
+            {
+                Value = "6",
+                Text = "6%"
+            };
+
+            var btw21 = new SelectListItem()
+            {
+                Value = "21",
+                Text = "21%"
+            };
+
+            items.Add(btw0);
+            items.Add(btw6);
+            items.Add(btw21);
+
+            ViewBag.btw = new SelectList(items);
+
             return View(producten);
         }
 
