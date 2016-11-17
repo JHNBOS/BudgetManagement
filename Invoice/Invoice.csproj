@@ -270,10 +270,14 @@
     <Content Include="Views\Toewijzen\Details.cshtml" />
     <Content Include="Views\Toewijzen\Edit.cshtml" />
     <Content Include="Views\Toewijzen\Index.cshtml" />
+    <Content Include="Views\Factuur\Create.cshtml" />
+    <Content Include="Views\Factuur\Delete.cshtml" />
+    <Content Include="Views\Factuur\Details.cshtml" />
+    <Content Include="Views\Factuur\Edit.cshtml" />
+    <Content Include="Views\Factuur\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Factuur\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
