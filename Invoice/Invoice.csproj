@@ -178,6 +178,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\FactuurController.cs" />
+    <Compile Include="Models\AspNetRoles.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\bezit.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ToewijzenController.cs" />

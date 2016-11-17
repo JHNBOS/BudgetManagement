@@ -14,6 +14,18 @@ namespace Invoice
         [ForeignKey("debiteuren")]
         public int? Deb_ID { get; set; }
 
+        [ForeignKey("producten")]
+        public int? Product_ID { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
+        public decimal? Prijs { get; set; }
+
+        [Column(TypeName = "date")]
+        [DataType(DataType.Date)]
+        public DateTime? Datum { get; set; }
+
         public virtual debiteuren debiteuren { get; set; }
+
+        public virtual producten producten { get; set; }
     }
 }

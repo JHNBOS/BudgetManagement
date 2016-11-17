@@ -15,6 +15,21 @@ namespace Invoice.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        private List<debiteuren> AvailableDebs()
+        {
+            var debiteur = db.debiteurens.ToList();
+
+            return debiteur;
+        }
+
+        private List<producten> AvailableProducts()
+        {
+            var product = db.productens.ToList();
+
+            return product;
+        }
+
+       
         // GET: Toewijzen
         public ActionResult Index()
         {
@@ -43,8 +58,22 @@ namespace Invoice.Controllers
         {
             bezit Bezit = new bezit();
 
-            ViewBag.deb = new SelectList(db.debiteurens, "ID", "Voornaam", "Achternaam", Bezit.Deb_ID);
-            ViewBag.product = new SelectList(db.productens, "ID", "Naam", Bezit.Product_ID);
+            IEnumerable<SelectListItem> selectList = from c in AvailableDebs()
+                                                     select new SelectListItem
+                                                     {
+                                                         Value = c.ID.ToString(),
+                                                         Text = c.Voornaam + " " + c.Achternaam
+                                                     };
+
+            IEnumerable<SelectListItem> selectList2 = from c in AvailableProducts()
+                                                      select new SelectListItem
+                                                      {
+                                                          Value = c.ID.ToString(),
+                                                          Text = c.Naam
+                                                      };
+
+            ViewBag.Deb_ID = new SelectList(selectList, "Value", "Text");
+            ViewBag.Product_ID = new SelectList(selectList2, "Value", "Text");
 
             return View();
         }
@@ -56,12 +85,30 @@ namespace Invoice.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Deb_ID,Product_ID")] bezit bezit)
         {
+            
             if (ModelState.IsValid)
             {
                 db.bezits.Add(bezit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            IEnumerable<SelectListItem> selectList = from c in AvailableDebs()
+                                                     select new SelectListItem
+                                                     {
+                                                         Value = c.ID.ToString(),
+                                                         Text = c.Voornaam + " " + c.Achternaam
+                                                     };
+
+            IEnumerable<SelectListItem> selectList2 = from c in AvailableProducts()
+                                                      select new SelectListItem
+                                                      {
+                                                          Value = c.ID.ToString(),
+                                                          Text = c.Naam
+                                                      };
+
+            ViewBag.Deb_ID = new SelectList(selectList, "Value", "Text", bezit.Deb_ID);
+            ViewBag.Product_ID = new SelectList(selectList2, "Value", "Text", bezit.Product_ID);
 
             return View(bezit);
         }

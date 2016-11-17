@@ -13,6 +13,7 @@ namespace Invoice
         public producten()
         {
             bezit = new HashSet<bezit>();
+            factuur = new HashSet<factuur>();
         }
 
         public int ID { get; set; }
@@ -21,11 +22,15 @@ namespace Invoice
 
         public string Beschrijving { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal? Prijs { get; set; }
 
         public int? BTW { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bezit> bezit { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<factuur> factuur { get; set; }
     }
 }
