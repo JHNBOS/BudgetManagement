@@ -13,6 +13,7 @@ namespace Invoice
         public debiteuren()
         {
             bezit = new HashSet<bezit>();
+            factuur = new HashSet<factuur>();
         }
 
         public int ID { get; set; }
@@ -37,5 +38,8 @@ namespace Invoice
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bezit> bezit { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<factuur> factuur { get; set; }
     }
 }

@@ -18,7 +18,8 @@ namespace Invoice.Controllers
         // GET: Factuur
         public ActionResult Index()
         {
-            return View(db.factuurs.ToList());
+            var factuurs = db.factuurs.Include(f => f.debiteuren);
+            return View(factuurs.ToList());
         }
 
         // GET: Factuur/Details/5
@@ -39,6 +40,16 @@ namespace Invoice.Controllers
         // GET: Factuur/Create
         public ActionResult Create()
         {
+            var debiteur = db.debiteurens.ToList();
+            IEnumerable<SelectListItem> selectList = from c in debiteur
+                                                     select new SelectListItem
+                                                     {
+                                                         Value = c.ID.ToString(),
+                                                         Text = c.Voornaam + " " + c.Achternaam
+                                                     };
+
+            ViewBag.Deb_id = new SelectList(selectList, "Value", "Text");
+
             return View();
         }
 
@@ -47,7 +58,7 @@ namespace Invoice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Bezit_ID")] factuur factuur)
+        public ActionResult Create([Bind(Include = "ID,Deb_ID")] factuur factuur)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +66,16 @@ namespace Invoice.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            var debiteur = db.debiteurens.ToList();
+            IEnumerable<SelectListItem> selectList = from c in debiteur
+                                                     select new SelectListItem
+                                                     {
+                                                         Value = c.ID.ToString(),
+                                                         Text = c.Voornaam + " " + c.Achternaam
+                                                     };
+
+            ViewBag.Deb_ID = new SelectList(selectList, "Value", "Text", factuur.Deb_ID);
 
             return View(factuur);
         }
@@ -71,6 +92,7 @@ namespace Invoice.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Deb_ID = new SelectList(db.debiteurens, "ID", "Voornaam", factuur.Deb_ID);
             return View(factuur);
         }
 
@@ -79,7 +101,7 @@ namespace Invoice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Bezit_ID")] factuur factuur)
+        public ActionResult Edit([Bind(Include = "ID,Deb_ID")] factuur factuur)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +109,7 @@ namespace Invoice.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Deb_ID = new SelectList(db.debiteurens, "ID", "Voornaam", factuur.Deb_ID);
             return View(factuur);
         }
 

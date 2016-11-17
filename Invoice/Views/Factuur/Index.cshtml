@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<Invoice.factuur>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Facturen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Facturen</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Creëer factuur", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Bezit_ID)
+            @Html.Raw("Debiteur")
         </th>
         <th></th>
     </tr>
@@ -21,12 +21,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Bezit_ID)
+            @Html.DisplayFor(modelItem => item.debiteuren.Voornaam)
+            @Html.Raw(" ")
+            @Html.DisplayFor(modelItem => item.debiteuren.Achternaam)
+
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Aanpassen", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Inzien", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Verwijderen", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

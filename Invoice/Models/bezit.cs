@@ -9,12 +9,6 @@ namespace Invoice
     [Table("bezit")]
     public partial class bezit
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public bezit()
-        {
-            factuur = new HashSet<factuur>();
-        }
-
         public int ID { get; set; }
 
         [ForeignKey("debiteuren")]
@@ -22,9 +16,6 @@ namespace Invoice
 
         [ForeignKey("producten")]
         public int? Product_ID { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<factuur> factuur { get; set; }
 
         public virtual debiteuren debiteuren { get; set; }
 

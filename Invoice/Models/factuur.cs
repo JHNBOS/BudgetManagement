@@ -11,9 +11,9 @@ namespace Invoice
     {
         public int ID { get; set; }
 
-        [ForeignKey("bezit")]
-        public int? Bezit_ID { get; set; }
+        [ForeignKey("debiteuren")]
+        public int? Deb_ID { get; set; }
 
-        public virtual bezit bezit { get; set; }
+        public virtual debiteuren debiteuren { get; set; }
     }
 }

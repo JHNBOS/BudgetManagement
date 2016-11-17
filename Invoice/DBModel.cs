@@ -19,13 +19,13 @@ namespace Invoice
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<bezit>()
-                .HasMany(e => e.factuur)
-                .WithOptional(e => e.bezit)
-                .HasForeignKey(e => e.Bezit_ID);
-
             modelBuilder.Entity<debiteuren>()
                 .HasMany(e => e.bezit)
+                .WithOptional(e => e.debiteuren)
+                .HasForeignKey(e => e.Deb_ID);
+
+            modelBuilder.Entity<debiteuren>()
+                .HasMany(e => e.factuur)
                 .WithOptional(e => e.debiteuren)
                 .HasForeignKey(e => e.Deb_ID);
 
