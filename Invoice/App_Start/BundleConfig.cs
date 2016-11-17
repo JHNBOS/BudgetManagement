@@ -24,7 +24,7 @@ namespace Invoice
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/Cosmo.css",
                       "~/Content/site.css"));
         }
     }

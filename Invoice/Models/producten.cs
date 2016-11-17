@@ -21,7 +21,7 @@ namespace Invoice
 
         public string Beschrijving { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal? Prijs { get; set; }
 
         public int? BTW { get; set; }

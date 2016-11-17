@@ -8,7 +8,7 @@
 <h2>Producten</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Creëer Product", "Create")
 </p>
 <table class="table">
     <tr>
@@ -47,7 +47,7 @@
         </td>
         <td>
             @Html.ActionLink("Aanpassen", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Inzien", "Details", new { id=item.ID }) |
             @Html.ActionLink("Verwijderen", "Delete", new { id=item.ID })
         </td>
     </tr>

@@ -1,6 +1,12 @@
-﻿body {
+﻿@font-face {
+    font-family: Ubuntu;
+    src: url(Ubuntu-R.ttf);
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: Ubuntu;
 }
 
 /* Set padding to keep content from hitting the edges */
