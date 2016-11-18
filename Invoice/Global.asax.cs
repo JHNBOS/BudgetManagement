@@ -21,7 +21,6 @@ namespace Invoice
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
             ModelBinders.Binders.Add(typeof(decimal?), new DecimalModelBinder());
 
-
         }
     }
 }
