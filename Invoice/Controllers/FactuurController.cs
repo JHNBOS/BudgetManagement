@@ -20,7 +20,7 @@ namespace Invoice.Controllers
         {
             var invoices = db.factuurs.Include(i => i.debiteuren).Include(j => j.producten);
 
-            return View(invoices.ToList());
+            return View(invoices.OrderBy(o => o.Datum).ToList());
         }
 
         // GET: Factuur/Details/5

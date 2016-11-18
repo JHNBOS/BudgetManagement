@@ -191,6 +191,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DBModel.cs" />
     <Compile Include="Models\debiteuren.cs" />
+    <Compile Include="Models\DecimalModelBinder .cs" />
     <Compile Include="Models\factuur.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

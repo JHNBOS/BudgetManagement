@@ -17,6 +17,7 @@ namespace Invoice
         [ForeignKey("producten")]
         public int? Product_ID { get; set; }
 
+        [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal? Prijs { get; set; }
 

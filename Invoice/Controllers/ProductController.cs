@@ -18,7 +18,7 @@ namespace Invoice.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            return View(db.productens.ToList());
+            return View(db.productens.OrderBy(o => o.Prijs).ToList());
         }
 
         // GET: Product/Details/5
@@ -82,6 +82,32 @@ namespace Invoice.Controllers
                 return RedirectToAction("Index");
             }
 
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            var btw0 = new SelectListItem()
+            {
+                Value = "0",
+                Text = "0%"
+            };
+
+            var btw6 = new SelectListItem()
+            {
+                Value = "6",
+                Text = "6%"
+            };
+
+            var btw21 = new SelectListItem()
+            {
+                Value = "21",
+                Text = "21%"
+            };
+
+            items.Add(btw0);
+            items.Add(btw6);
+            items.Add(btw21);
+
+            ViewBag.btw = new SelectList(items, "Value", "Text", producten.BTW);
+
             return View(producten);
         }
 
@@ -122,7 +148,7 @@ namespace Invoice.Controllers
             items.Add(btw6);
             items.Add(btw21);
 
-            ViewBag.btw = new SelectList(items);
+            ViewBag.btw = new SelectList(items, "Value", "Text", producten.BTW);
 
             return View(producten);
         }
@@ -140,6 +166,33 @@ namespace Invoice.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            var btw0 = new SelectListItem()
+            {
+                Value = "0",
+                Text = "0%"
+            };
+
+            var btw6 = new SelectListItem()
+            {
+                Value = "6",
+                Text = "6%"
+            };
+
+            var btw21 = new SelectListItem()
+            {
+                Value = "21",
+                Text = "21%"
+            };
+
+            items.Add(btw0);
+            items.Add(btw6);
+            items.Add(btw21);
+
+            ViewBag.btw = new SelectList(items, "Value", "Text", producten.BTW);
+
             return View(producten);
         }
 
