@@ -28,3 +28,22 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.ui-button {
+    background-color: #2780e3 !important;
+    border-color: #2780e3 !important;
+    color: #ffffff !important;
+    display: inline-block;
+    padding: 0px 0px !important;
+    font-family: inherit !important;
+    font-size: 15px !important;
+    border-radius: 0 !important;
+    text-decoration: none;
+    width: 75px;
+    height: 43px;
+    margin-left: 10px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+}

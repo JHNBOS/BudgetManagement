@@ -13,19 +13,21 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Deb_ID)
+            @Html.Raw("Debiteur")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Deb_ID)
+            @Html.DisplayFor(model => model.debiteuren.Voornaam)
+            @Html.Raw(" ")
+            @Html.DisplayFor(model => model.debiteuren.Achternaam)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Product_ID)
+            @Html.Raw("Product")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Product_ID)
+            @Html.DisplayFor(model => model.producten.Naam)
         </dd>
 
     </dl>

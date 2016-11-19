@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -44,5 +45,18 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryui")
+    <script>
+    $(function () {
+        $(".jqueryui-marker-datepicker").datepicker({
+            dateFormat: "dd-mm-yy",
+            changeYear: true,
+            showOn: "button"
+        }).css("display", "inline-block").next("button").button({
+            label: "Selecteer <br /> datum",
+            text: false
+        });
+    });
+    </script>
 </body>
 </html>

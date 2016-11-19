@@ -22,7 +22,7 @@ namespace Invoice
         public decimal? Prijs { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Datum { get; set; }
 
         public virtual debiteuren debiteuren { get; set; }
