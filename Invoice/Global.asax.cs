@@ -21,6 +21,18 @@ namespace Invoice
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
             ModelBinders.Binders.Add(typeof(decimal?), new DecimalModelBinder());
 
+            System.Globalization.CultureInfo newCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+
+            newCulture.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
+            newCulture.DateTimeFormat.DateSeparator = "-";
+
+            newCulture.NumberFormat.CurrencyDecimalSeparator = ",";
+            newCulture.NumberFormat.NumberDecimalSeparator = ",";
+            newCulture.NumberFormat.CurrencyGroupSeparator = ".";
+            newCulture.NumberFormat.NumberGroupSeparator = ".";
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = newCulture;
         }
+
     }
 }

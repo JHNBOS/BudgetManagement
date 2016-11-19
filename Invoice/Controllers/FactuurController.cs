@@ -140,25 +140,6 @@ namespace Invoice.Controllers
             ViewBag.Deb_ID = new SelectList(selectList, "Value", "Text", factuur.Deb_ID);
             ViewBag.ProductList = AvailableProducts();
 
-            /*
-            decimal? f = factuur.Prijs;
-            string f2 = f.ToString();
-
-            string[] f3 = f2.Split('.');
-
-            string sf4 = f3[0];
-            sf4.Replace(',', '.');
-
-            string sf5 = f3[1];
-            sf5.Insert(0, ".");
-
-            string newDecimal = sf4 + sf5;
-
-            decimal n = Convert.ToDecimal(newDecimal);
-
-            factuur.Prijs = n;
-            */
-
             return View(factuur);
         }
 
@@ -175,16 +156,22 @@ namespace Invoice.Controllers
                 return HttpNotFound();
             }
 
-            var debiteur = db.debiteurens.ToList();
-            IEnumerable<SelectListItem> selectList = from c in debiteur
+            IEnumerable<SelectListItem> selectList = from c in AvailableDebs()
                                                      select new SelectListItem
                                                      {
                                                          Value = c.ID.ToString(),
                                                          Text = c.Voornaam + " " + c.Achternaam
                                                      };
 
+            IEnumerable<SelectListItem> selectList2 = from c in AvailableProducts()
+                                                     select new SelectListItem
+                                                     {
+                                                         Value = c.ID.ToString(),
+                                                         Text = c.Naam
+                                                     };
+
             ViewBag.Deb_ID = new SelectList(selectList, "Value", "Text", factuur.Deb_ID);
-            ViewBag.ProductList = AvailableProducts();
+            ViewBag.Product_ID = new SelectList(selectList2, "Value", "Text", factuur.Product_ID);
 
             return View(factuur);
         }
@@ -203,16 +190,22 @@ namespace Invoice.Controllers
                 return RedirectToAction("Index");
             }
 
-            var debiteur = db.debiteurens.ToList();
-            IEnumerable<SelectListItem> selectList = from c in debiteur
+            IEnumerable<SelectListItem> selectList = from c in AvailableDebs()
                                                      select new SelectListItem
                                                      {
                                                          Value = c.ID.ToString(),
                                                          Text = c.Voornaam + " " + c.Achternaam
                                                      };
 
+            IEnumerable<SelectListItem> selectList2 = from c in AvailableProducts()
+                                                      select new SelectListItem
+                                                      {
+                                                          Value = c.ID.ToString(),
+                                                          Text = c.Naam
+                                                      };
+
             ViewBag.Deb_ID = new SelectList(selectList, "Value", "Text", factuur.Deb_ID);
-            ViewBag.ProductList = AvailableProducts();
+            ViewBag.Product_ID = new SelectList(selectList2, "Value", "Text", factuur.Product_ID);
 
             return View(factuur);
         }

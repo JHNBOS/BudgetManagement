@@ -21,8 +21,8 @@ namespace Invoice
         [DisplayFormat(DataFormatString = "{0:#,###0.00}", ApplyFormatInEditMode = true)]
         public decimal? Prijs { get; set; }
 
-        [Column(TypeName = "date")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Datum { get; set; }
 
         public virtual debiteuren debiteuren { get; set; }
