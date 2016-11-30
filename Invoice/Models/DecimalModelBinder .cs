@@ -20,7 +20,7 @@ namespace Invoice.Models
             try
             {
                 actualValue = Convert.ToDecimal(valueResult.AttemptedValue,
-                    new CultureInfo("en-US"));
+                    new CultureInfo("nl-NL"));
             }
             catch (FormatException e)
             {

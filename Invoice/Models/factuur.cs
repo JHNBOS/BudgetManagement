@@ -15,11 +15,11 @@ namespace Invoice
         public int? Deb_ID { get; set; }
 
         [ForeignKey("producten")]
-        public int? Product_ID { get; set; }
+        public int?[] Product_ID { get; set; }
 
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:#,###0.00}", ApplyFormatInEditMode = true)]
-        public decimal? Prijs { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
+        public decimal?[] Prijs { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
@@ -27,6 +27,6 @@ namespace Invoice
 
         public virtual debiteuren debiteuren { get; set; }
 
-        public virtual producten producten { get; set; }
+        public virtual producten[] producten { get; set; }
     }
 }

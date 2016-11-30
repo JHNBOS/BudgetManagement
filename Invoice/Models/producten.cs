@@ -23,7 +23,8 @@ namespace Invoice
         public string Beschrijving { get; set; }
 
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:#,###0.00}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:#,###0.00}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal? Prijs { get; set; }
 
         public int? BTW { get; set; }
